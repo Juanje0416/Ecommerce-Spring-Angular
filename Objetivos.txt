@@ -1,0 +1,10 @@
+El sistema, ofrece los siguientes servicios:
+
+Navegación y búsqueda intuitiva: Los usuarios podrán buscar y explorar productos fácilmente.
+Gestión de carrito de compras: Funcionalidades completas para añadir y eliminar productos en el carrito.
+Proceso de pago seguro: Integración con PayPal para transacciones seguras.
+Gestión de usuarios: Administración de roles y permisos para usuarios ADMIN y USER.
+Seguridad robusta: Protección de datos de usuario mediante Spring Security y encriptación de contraseñas.
+Autorización basada en roles: Acceso restringido a funcionalidades según el rol del usuario.
+Interfaz de usuario dinámica: Animaciones con JavaScript para una experiencia interactiva.
+Estilización dinámica: Uso de JavaScript, CSS, HTML y Bootstrap para una apariencia atractiva y adaptable.
