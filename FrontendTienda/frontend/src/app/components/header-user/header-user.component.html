@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #ffffff; font-family: 'Crimson Text', serif;">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']" style="color: #000000;">JuanjeStore</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/shirts']" style="color: #000000; font-family: 'Crimson Text', serif;">
+            <i class="bi bi-cart"></i> Camisetas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/pants']" style="color: #000000; font-family: 'Crimson Text', serif;">
+            <i class="bi bi-cart"></i> Pantalones
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/shoes']" style="color: #000000; font-family: 'Crimson Text', serif;">
+            <i class="bi bi-cart"></i> Zapatos
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="authenticated">
+          <a class="nav-link" [routerLink]="['/offers']" style="color: #000000; font-family: 'Crimson Text', serif;">
+            <i class="bi bi-person"></i> Ofertas
+          </a>
+        </li>  
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/cart/sumary']" style="color: #000000; font-family: 'Crimson Text', serif;">
+            <i class="bi bi-cart"></i> Carrito
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/user/login']" style="color: #000000; font-family: 'Crimson Text', serif;">
+            <i class="bi bi-person"></i> Login
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="authenticated">
+          <a class="nav-link" (click)="openLogoutModal()" style="color: #000000; font-family: 'Crimson Text', serif;">
+            <i class="bi bi-box-arrow-right"></i> Logout
+          </a>
+        </li>      
+      </ul>
+    </div>
+</nav>
+
+<!-- Logout Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-styled">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">
+          <i class="bi bi-exclamation-triangle-fill" style="color: #ff0000;"></i> Confirmar Cierre de Sesión
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <i class="bi bi-question-circle" style="font-size: 3rem; color: #000;"></i>
+        <p class="mt-3">¿Estás seguro de que deseas cerrar sesión?</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="logout()">Cerrar Sesión</button>
+      </div>
+    </div>
+  </div>
+</div>

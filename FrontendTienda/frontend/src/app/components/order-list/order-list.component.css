@@ -1,0 +1,133 @@
+.medio {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  body {
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  h1, h2 {
+    color: #6c757d;
+  }
+  
+  .breadcrumb {
+    background-color: #e9ecef;
+    border-radius: 4px;
+    padding: 10px;
+  }
+  
+  .breadcrumb .breadcrumb-item a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .breadcrumb .breadcrumb-item a:hover {
+    text-decoration: underline;
+  }
+  
+  .breadcrumb .breadcrumb-item.active {
+    color: #6c757d;
+  }
+  
+  .table {
+    margin-top: 20px;
+    background-color: #fff;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    
+  }
+  
+  .table thead th {
+    border-bottom: 2px solid #dee2e6;
+    color: #6c757d;
+  }
+  
+  .table tbody tr {
+    transition: background-color 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f3f5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table td, .table th {
+    vertical-align: middle;
+    border-top: none;
+  }
+  
+  .img-fluid {
+    border-radius: 4px;
+    transition: transform 0.3s;
+  }
+  
+  .img-fluid:hover {
+    transform: scale(1.05);
+  }
+  
+  .btn {
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .btn-outline-primary {
+    color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-outline-warning {
+    color: #ffc107;
+    border-color: #ffc107;
+  }
+  
+  .btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #fff;
+  }
+  
+  .btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .d-flex {
+    display: flex;
+  }
+  
+  .justify-content-between {
+    justify-content: space-between;
+  }
+  
+  .align-items-center {
+    align-items: center;
+  }
+  
+  .confirmed {
+    font-weight: bold;
+    color: rgb(0, 98, 255);
+  }
+  
+  .cancelled {
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+  }
+  

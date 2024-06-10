@@ -1,0 +1,39 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+@import 'ngx-toastr/toastr';
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* styles.css */
+
+
+
+/* Body */body {
+    padding-top: 56px;
+  }
+
+  .navbar {
+    height: 60px; /* Fija la altura de la barra de navegación */
+  }
+  
+
+
+/* 
+ * ----------------------------
+ * Footer
+ * ----------------------------
+ */
+
+
+.footer{
+  padding-top: 25px;
+  padding-bottom: 50px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  
+}

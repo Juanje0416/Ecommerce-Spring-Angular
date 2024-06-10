@@ -1,0 +1,134 @@
+<app-header-admin></app-header-admin>
+
+<!-- Page Content -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3 text-center">
+        JuanjeStore <small>Usuarios</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/admin/user']">Usuarios</a></li>
+        <li class="breadcrumb-item active">Crear Usuario</li>
+      </ol>
+
+      <h2 class="text-center">Crear Usuario</h2>
+      <br>
+      <form class="form-horizontal product-form" (ngSubmit)="register()" #userForm="ngForm" enctype="application/x-www-form-urlencoded">
+        
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="username">Nombre de Usuario:</label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="username" type="text" class="form-control" id="username" name="username"
+              placeholder="Ingrese un nombre de usuario" autocomplete="off" required minlength="3" maxlength="50" #usernameCtrl="ngModel">
+            <div *ngIf="usernameCtrl.invalid && (usernameCtrl.dirty || usernameCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="usernameCtrl.errors?.['required']">Ingrese un nombre de usuario.</div>
+              <div *ngIf="usernameCtrl.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</div>
+              <div *ngIf="usernameCtrl.errors?.['maxlength']">El nombre debe tener como máximo 50 caracteres.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="firstName">Nombre:</label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="firstName" type="text" class="form-control" id="firstName" name="firstName"
+              placeholder="Ingrese un nombre" autocomplete="off" required minlength="3" maxlength="15" #firstNameCtrl="ngModel">
+            <div *ngIf="firstNameCtrl.invalid && (firstNameCtrl.dirty || firstNameCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="firstNameCtrl.errors?.['required']">Ingrese su nombre por favor.</div>
+              <div *ngIf="firstNameCtrl.errors?.['minlength']">El nombre tiene que contener como mínimo 3 caracteres.</div>
+              <div *ngIf="firstNameCtrl.errors?.['maxlength']">El nombre tiene que tener como máximo 15 caracteres.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="lastName">Apellido:</label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="lastName" type="text" class="form-control" id="lastName" name="lastName"
+              placeholder="Ingrese un apellido" autocomplete="off" required minlength="3" maxlength="15" #lastNameCtrl="ngModel">
+            <div *ngIf="lastNameCtrl.invalid && (lastNameCtrl.dirty || lastNameCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="lastNameCtrl.errors?.['required']">Introduzca su apellido por favor.</div>
+              <div *ngIf="lastNameCtrl.errors?.['minlength']">El apellido tiene que contener como mínimo 3 caracteres.</div>
+              <div *ngIf="lastNameCtrl.errors?.['maxlength']">El apellido tiene que contener como máximo 15 caracteres.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="email">Email:</label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="email" type="email" class="form-control" id="email" name="email"
+              placeholder="Ingrese un email" autocomplete="off" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" #emailCtrl="ngModel">
+            <div *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="emailCtrl.errors?.['required']">Introduzca su email por favor.</div>
+              <div *ngIf="emailCtrl.errors?.['pattern']">Por favor, digite el email con el siguiente formato: user100@gmail.com.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="address">Dirección:</label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="address" type="text" class="form-control" id="address" name="address"
+              placeholder="Ingrese una dirección" autocomplete="off" required minlength="5" maxlength="50" #addressCtrl="ngModel">
+            <div *ngIf="addressCtrl.invalid && (addressCtrl.dirty || addressCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="addressCtrl.errors?.['required']">Ingrese su dirección por favor.</div>
+              <div *ngIf="addressCtrl.errors?.['minlength']">La dirección tiene que contener como mínimo 5 caracteres.</div>
+              <div *ngIf="addressCtrl.errors?.['maxlength']">La dirección tiene que tener como máximo 50 caracteres.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="cellphone">Número de teléfono:</label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="cellphone" type="tel" class="form-control" id="cellphone" name="cellphone"
+              placeholder="Ingrese un número de teléfono" autocomplete="off" required pattern="^\d{9}$" #cellphoneCtrl="ngModel">
+            <div *ngIf="cellphoneCtrl.invalid && (cellphoneCtrl.dirty || cellphoneCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="cellphoneCtrl.errors?.['required']">Ingrese su teléfono por favor.</div>
+              <div *ngIf="cellphoneCtrl.errors?.['pattern']">El número de teléfono debe tener exactamente 9 dígitos.</div>
+            </div>
+          </div>
+        </div>        
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="userType">Tipo de Usuario:</label>
+          <div class="col-sm-10">
+            <select [(ngModel)]="userType" name="userType" class="form-control" id="userType" required #userTypeCtrl="ngModel">
+              <option value="USER">USER</option>
+              <option value="ADMIN">ADMIN</option>
+            </select>
+            <div *ngIf="userTypeCtrl.invalid && (userTypeCtrl.dirty || userTypeCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="userTypeCtrl.errors?.['required']">Seleccione un tipo de usuario.</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="password">Contraseña:</label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="password" type="password" class="form-control" id="password" name="password"
+              placeholder="Ingrese una contraseña" autocomplete="off" required minlength="6" maxlength="20" #passwordCtrl="ngModel">
+            <div *ngIf="passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="passwordCtrl.errors?.['required']">Ingrese su contraseña por favor.</div>
+              <div *ngIf="passwordCtrl.errors?.['minlength']">La contraseña debe tener como mínimo 6 caracteres.</div>
+              <div *ngIf="passwordCtrl.errors?.['maxlength']">La contraseña debe tener como máximo 20 caracteres.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-12 text-center">
+            <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">
+              <span class="glyphicon glyphicon-saved"></span> Guardar
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

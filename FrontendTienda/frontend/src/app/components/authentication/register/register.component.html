@@ -1,0 +1,138 @@
+<app-header-user></app-header-user>
+
+<!-- Page Content -->
+<div class="container my-5">
+  <div class="row no-gutters justify-content-center">
+    <div class="col-md-6">
+      <div class="card rounded-left shadow-lg">
+        <div class="card-body p-5">
+          <h2 class="mb-4 text-center">Registro</h2>
+          <form (ngSubmit)="register()" #registerForm="ngForm">
+            <div class="form-group mb-3">
+              <label for="firstName">Nombre:</label>
+              <input 
+                [(ngModel)]="firstName" 
+                type="text" 
+                class="form-control" 
+                id="firstName" 
+                name="firstName" 
+                placeholder="Ingrese su nombre" 
+                autocomplete="off" 
+                required 
+                minlength="3" 
+                maxlength="15" 
+                #firstNameCtrl="ngModel">
+              <div *ngIf="firstNameCtrl.invalid && (firstNameCtrl.dirty || firstNameCtrl.touched)" class="alert alert-danger">
+                <div *ngIf="firstNameCtrl.errors?.['required']">Ingrese su nombre por favor.</div>
+                <div *ngIf="firstNameCtrl.errors?.['minlength']">El nombre tiene que contener como mínimo 3 caracteres.</div>
+                <div *ngIf="firstNameCtrl.errors?.['maxlength']">El nombre tiene que tener como máximo 15 caracteres.</div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="lastName">Apellido:</label>
+              <input 
+                [(ngModel)]="lastName" 
+                type="text" 
+                class="form-control" 
+                id="lastName" 
+                name="lastName" 
+                placeholder="Ingrese su Apellido" 
+                autocomplete="off" 
+                required 
+                minlength="3" 
+                maxlength="15" 
+                #lastNameCtrl="ngModel">
+              <div *ngIf="lastNameCtrl.invalid && (lastNameCtrl.dirty || lastNameCtrl.touched)" class="alert alert-danger">
+                <div *ngIf="lastNameCtrl.errors?.['required']">Introduzca su apellido por favor.</div>
+                <div *ngIf="lastNameCtrl.errors?.['minlength']">El apellido tiene que contener como mínimo 3 caracteres.</div>
+                <div *ngIf="lastNameCtrl.errors?.['maxlength']">El apellido tiene que contener como máximo 15 caracteres.</div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="email">Email:</label>
+              <input 
+                [(ngModel)]="email" 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                name="email" 
+                placeholder="Ingrese su email" 
+                autocomplete="off" 
+                required 
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+                #emailCtrl="ngModel">
+              <div *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)" class="alert alert-danger">
+                <div *ngIf="emailCtrl.errors?.['required']">Introduzca su email por favor.</div>
+                <div *ngIf="emailCtrl.errors?.['pattern']">Por favor, digite el email con el siguiente formato: user100@gmail.com.</div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="address">Dirección:</label>
+              <input 
+                [(ngModel)]="address" 
+                type="text" 
+                class="form-control" 
+                id="address" 
+                name="address" 
+                placeholder="Ingrese su dirección" 
+                autocomplete="off" 
+                required 
+                minlength="5" 
+                maxlength="50" 
+                #addressCtrl="ngModel">
+              <div *ngIf="addressCtrl.invalid && (addressCtrl.dirty || addressCtrl.touched)" class="alert alert-danger">
+                <div *ngIf="addressCtrl.errors?.['required']">Ingrese su dirección por favor.</div>
+                <div *ngIf="addressCtrl.errors?.['minlength']">La dirección tiene que contener como mínimo 5 caracteres.</div>
+                <div *ngIf="addressCtrl.errors?.['maxlength']">La dirección tiene que tener como máximo 50 caracteres.</div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="cellphone">Teléfono:</label>
+              <input 
+                [(ngModel)]="cellphone" 
+                type="text" 
+                class="form-control" 
+                id="cellphone" 
+                name="cellphone" 
+                placeholder="Ingrese su teléfono" 
+                autocomplete="off" 
+                required 
+                pattern="^\+?[1-9]\d{1,14}$" 
+                #cellphoneCtrl="ngModel">
+              <div *ngIf="cellphoneCtrl.invalid && (cellphoneCtrl.dirty || cellphoneCtrl.touched)" class="alert alert-danger">
+                <div *ngIf="cellphoneCtrl.errors?.['required']">Ingrese su teléfono por favor.</div>
+                <div *ngIf="cellphoneCtrl.errors?.['pattern']">El número de teléfono debe tener un formato válido.</div>
+              </div>
+            </div>
+            <div class="form-group mb-4">
+              <label for="password">Contraseña:</label>
+              <input 
+                [(ngModel)]="password" 
+                type="password" 
+                class="form-control" 
+                id="password" 
+                name="password" 
+                placeholder="Ingrese su contraseña" 
+                autocomplete="off" 
+                required 
+                minlength="6" 
+                maxlength="20" 
+                #passwordCtrl="ngModel">
+              <div *ngIf="passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)" class="alert alert-danger">
+                <div *ngIf="passwordCtrl.errors?.['required']">Ingrese su contraseña por favor.</div>
+                <div *ngIf="passwordCtrl.errors?.['minlength']">La contraseña debe tener como mínimo 6 caracteres.</div>
+                <div *ngIf="passwordCtrl.errors?.['maxlength']">La contraseña debe tener como máximo 20 caracteres.</div>
+              </div>
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-dark btn-block" [disabled]="!registerForm.form.valid">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 d-none d-md-block">
+      <img src="https://images.unsplash.com/photo-1574015974293-817f0ebebb74?q=80&w=1873&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-right shadow-image" alt="Fashion">
+    </div>
+  </div>
+</div>

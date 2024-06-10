@@ -1,0 +1,35 @@
+.hero-section {
+  background-image: url('https://images.unsplash.com/photo-1508216310976-c518daae0cdc?q=80&w=1674&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover; /* Asegura que la imagen cubra toda el área del contenedor */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+  font-family: 'Poppins', sans-serif; /* Fuente legible para el cuerpo */
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Aumenta el desplazamiento, desenfoque y oscuridad */
+}
+
+.hero-section h1 {
+  font-size: 4em; /* Aumenta el tamaño de la fuente */
+  margin-bottom: 20px;
+  font-family: 'Crimson Text', serif;
+}
+
+.hero-section p {
+  font-family: 'Crimson Text', serif;
+  font-size: 2em; /* Aumenta el tamaño de la fuente */
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 50px 0; /* Reduce el relleno en pantallas más pequeñas */
+  }
+
+  .hero-section h1 {
+    font-size: 2.5em; /* Reduce el tamaño de la fuente en pantallas más pequeñas */
+  }
+
+  .hero-section p {
+    font-size: 1.2em; /* Reduce el tamaño de la fuente en pantallas más pequeñas */
+  }
+}

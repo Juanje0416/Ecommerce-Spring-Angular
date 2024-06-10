@@ -1,0 +1,40 @@
+<app-header-admin></app-header-admin>
+<!-- añadido mi cabecera -->
+
+<!-- Page Content List Products-->
+<div class="container mt-5">
+    <!-- Page Heading -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a class="btn btn-outline-primary" routerLink="/admin/product/addproduct"> Crear Producto</a>
+    </div>
+    <h2 class="text-center text-secondary">Productos</h2>
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Imagen</th>
+                <th>Precio</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+                <th>Detalles</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let producto of products | paginate: { itemsPerPage: 4, currentPage: p }">
+            <tr>
+                <td>{{producto.code}}</td>
+                <td>{{producto.name}}</td>
+                <td>{{producto.description}}</td>
+                <td><img [src]="producto.urlImage" alt="{{producto.name}}" class="img-fluid" style="width: 100px; height: auto;"></td>
+                <td>{{producto.price}}€</td>
+                <td><button class="btn btn-outline-warning" [routerLink]="['/admin/product/update', producto.id]">Editar</button></td>
+                <td><button class="btn btn-outline-danger" (click)="deleteProductById(producto.id)">Eliminar</button></td>
+                <td><button class="btn btn-outline-primary" [routerLink]="['/admin/product/details', producto.id]">Detalles</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls class="medio" (pageChange)="p = $event"></pagination-controls>
+    <br>
+</div>
+

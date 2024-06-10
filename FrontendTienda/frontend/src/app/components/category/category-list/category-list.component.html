@@ -1,0 +1,30 @@
+<app-header-admin></app-header-admin>
+
+<!-- Page Content List Categories -->
+<div class="container mt-5">
+    <!-- Page Heading -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a class="btn btn-outline-primary" routerLink="/admin/category/add">Crear Categoría</a>
+    </div>
+    <h2 class="text-center text-secondary">Categorías</h2>
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let c of categories | paginate: { itemsPerPage: 5, currentPage: p }">
+            <tr>
+                <td>{{c.id}}</td>
+                <td>{{c.name}}</td>
+                <td><button class="btn btn-outline-warning" [routerLink]="['/admin/category/update', c.id]">Editar</button></td>
+                <td><button class="btn btn-outline-danger" (click)="deleteCategoryById(c.id)">Eliminar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls class="medio" (pageChange)="p = $event"></pagination-controls>
+    <br>
+</div>

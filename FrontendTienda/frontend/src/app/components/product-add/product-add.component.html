@@ -1,0 +1,103 @@
+<app-header-admin></app-header-admin>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="mt-4 mb-3 text-center">
+        JuanjeStore Productos
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/admin/product']">Productos</a></li>
+        <li class="breadcrumb-item active">Guardar Productos</li>
+      </ol>
+
+      <h2 class="text-center">Guardar Producto</h2>
+      <br>
+      <form class="form-horizontal product-form" (ngSubmit)="addProduct()" #productForm="ngForm" enctype="multipart/form-data">
+        <input type="hidden" [(ngModel)]="id" name="id">
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label" for="category">Elija una categoría:</label>
+          <div class="col-sm-10">
+            <select [(ngModel)]="categoryId" name="category" required #categoryCtrl="ngModel" class="form-control">
+              <option *ngFor="let categoria of categories" [value]="categoria.id">{{categoria.name}}</option>
+            </select>
+            <div *ngIf="categoryCtrl.invalid && (categoryCtrl.dirty || categoryCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="categoryCtrl.errors?.['required']">Seleccione una categoría.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="nombre">Nombre:</label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="name" type="text" class="form-control" id="nombre" name="nombre"
+              placeholder="Ingrese el nombre del producto" autocomplete="off" required minlength="3" maxlength="50" #nameCtrl="ngModel">
+            <div *ngIf="nameCtrl.invalid && (nameCtrl.dirty || nameCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="nameCtrl.errors?.['required']">Ingrese el nombre del producto.</div>
+              <div *ngIf="nameCtrl.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</div>
+              <div *ngIf="nameCtrl.errors?.['maxlength']">El nombre debe tener como máximo 50 caracteres.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="descripcion">Descripción:</label>
+          <div class="col-sm-10">
+            <textarea [(ngModel)]="description" class="form-control" id="descripcion" name="descripcion"
+              placeholder="Ingrese la descripcion del producto" required minlength="5" maxlength="200" #descriptionCtrl="ngModel" autocomplete="off"></textarea>
+            <div *ngIf="descriptionCtrl.invalid && (descriptionCtrl.dirty || descriptionCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="descriptionCtrl.errors?.['required']">Ingrese la descripción del producto.</div>
+              <div *ngIf="descriptionCtrl.errors?.['minlength']">La descripción debe tener al menos 5 caracteres.</div>
+              <div *ngIf="descriptionCtrl.errors?.['maxlength']">La descripción debe tener como máximo 200 caracteres.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="precio">Precio:</label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="price" type="number" class="form-control" step="any" id="precio" name="precio"
+              placeholder="Ingrese el precio del producto" autocomplete="off" required min="0" #priceCtrl="ngModel">
+            <div *ngIf="priceCtrl.invalid && (priceCtrl.dirty || priceCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="priceCtrl.errors?.['required']">Ingrese el precio del producto.</div>
+              <div *ngIf="priceCtrl.errors?.['min']">El precio debe ser mayor o igual a 0.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="code">Código:</label>
+          <div class="col-sm-10">
+            <input [(ngModel)]="code" type="number" class="form-control" step="any" id="code" name="codigo"
+              placeholder="Ingrese el código del producto" autocomplete="off" required min="0" #codeCtrl="ngModel">
+            <div *ngIf="codeCtrl.invalid && (codeCtrl.dirty || codeCtrl.touched)" class="alert alert-danger">
+              <div *ngIf="codeCtrl.errors?.['required']">Ingrese el código del producto.</div>
+              <div *ngIf="codeCtrl.errors?.['min']">El código debe ser mayor o igual a 0.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row mb-4">
+          <label class="col-sm-2 col-form-label" for="img">Imagen:</label>
+          <div class="col-sm-10">
+            <input type="file" class="form-control-file" id="img" name="img" (change)="onFileSelected($event)" required>
+            <div *ngIf="imgTypeError" class="alert alert-danger">
+              El archivo debe ser una imagen (png, jpg, jpeg).
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-12 text-center">
+            <button type="submit" class="btn btn-success" [disabled]="!productForm.form.valid">
+              <span class="glyphicon glyphicon-saved"></span> Guardar
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

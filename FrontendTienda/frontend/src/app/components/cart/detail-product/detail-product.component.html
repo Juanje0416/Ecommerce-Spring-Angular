@@ -1,0 +1,42 @@
+<app-header-user></app-header-user>
+
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">
+      JuanjeStore <small>Producto</small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item active">Producto</li>
+    </ol>
+
+    <!-- Blog Post -->
+        <div class="row">
+          <div class="col-lg-6">
+            <a href="#"> <img class="img-fluid rounded shadow-image"
+              src="{{urlImage}}"  alt="">
+            </a>
+          </div>
+          <div class="col-lg-6 shadow">
+            <form action="#" method="POST" class="product-details-form shad">
+              <h2 class="product-title">{{name}}</h2>
+              <ul class="product-details-list">
+                <li class="product-details-item"><h5 class="product-price">Precio: {{price}}€</h5></li>
+                <li class="product-details-item">
+                  <p class="product-description">{{description}}</p>
+                </li>
+                <li class="product-details-item">
+                  <h6 class="product-quantity">
+                    Cantidad: 
+                    <input type="number" [(ngModel)]="quantity" id="quantity" name="quantity" autocomplete="off" min="1" max="100" class="quantity-input">
+                  </h6>
+                </li>
+              </ul>
+              <button (click)="addCart(id)" class="btn btn-dark btn-add-cart">Añadir al carrito</button>
+            </form>
+          </div>          
+</div>
+</div>

@@ -1,0 +1,41 @@
+<app-header-user></app-header-user>
+
+<!-- Page Content -->
+<div class="container my-5">
+    <div class="row no-gutters justify-content-center">
+        <div class="col-md-6 d-none d-md-block">
+            <img src="https://images.unsplash.com/photo-1568185346876-4b3d3639bbf1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjUyfHxmYXNoaW9ufGVufDB8fDB8fHww" class="img-fluid rounded-left shadow-image" alt="Fashion">
+        </div>
+        <div class="col-md-6">
+            <div class="card rounded-right shadow-image">
+                <div class="card-body p-5">
+                    <h2 class="mb-4 text-center">Iniciar Sesión</h2>
+                    <form (ngSubmit)="login()">
+                        <div class="form-group mb-4">
+                            <label for="email">Email:</label>
+                            <input [(ngModel)]="username" type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email" required autocomplete="off" #emailCtrl="ngModel">
+                            <div *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)" class="alert alert-danger">
+                                <div *ngIf="emailCtrl.errors?.['required']">Introduzca su email por favor.</div>
+                                <div *ngIf="emailCtrl.errors?.['email']">Por favor, introduzca un email válido.</div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="pwd">Contraseña:</label>
+                            <input [(ngModel)]="password" type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña" required #passwordCtrl="ngModel">
+                            <div *ngIf="passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)" class="alert alert-danger">
+                                <div *ngIf="passwordCtrl.errors?.['required']">Introduzca su contraseña por favor.</div>
+                            </div>
+                            <div *ngIf="loginFailed" class="alert alert-danger">El usuario o la contraseña son incorrectos.</div>
+                        </div>
+                        <div class="form-group mb-4 text-center">
+                            <button type="submit" class="btn btn-dark btn-block">Guardar</button>
+                        </div>                        
+                    </form>
+                    <p class="text-center"><a routerLink="/user/register" class="card-link">Si aún no tiene cuenta aquí puede registrarse</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.container -->
